@@ -1,10 +1,7 @@
 {
   "repos": [
     "user/repo",
-    "org/repo",
-    "alchemycodelab/caregiver-go",
-    "alchemycodelab/yoyo-migration-server",
-    "alchemycodelab/yoyo-server"
+    "org/repo"
   ],
   "github_key":"<your github API key here>"
 }
