@@ -7,7 +7,7 @@
   },
   "description": "Utility to show GitHub PRs on a specific list of repos.",
   "author": "David Goodwin <goodwid@gmail.com>",
-  "license": "GPLv2",
+  "license": "GPL",
   "dependencies": {
     "axios": "^0.18.0",
     "bitbar": "^0.4.0",
