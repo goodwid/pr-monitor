@@ -1,17 +1,19 @@
 {
-  "name": "github-pr-bitbar",
-  "version": "0.0.1",
+  "name": "github-pr-monitor",
+  "version": "0.1.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "description": "BitBar plugin to show GitHub PRs on a specific repo.",
+  "description": "Utility to show GitHub PRs on a specific list of repos.",
   "author": "David Goodwin <goodwid@gmail.com>",
   "license": "GPLv2",
   "dependencies": {
     "axios": "^0.18.0",
     "bitbar": "^0.4.0",
-    "chalk": "^2.4.2"
+    "chalk": "^2.4.2",
+    "commander": "^2.20.0",
+    "preferences": "^1.0.2"
   },
   "warranty": "If you break it, you get to keep both pieces."
 }
