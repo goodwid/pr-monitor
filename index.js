@@ -1,23 +1,25 @@
 #!/usr/bin/env node
 
+/* eslint-disable indent */
+
 const program = require('commander');
 const Preferences = require('preferences');
 let app = 'pr-monitor';
 const prefs = new Preferences(app);
 const bitBarFormat = require('./lib/data-format/bitbar');
 const terminalFormat = require('./lib/data-format/terminal');
-const jsonFormat = require('./lib/data-format/json');
-const formatOptions = { bitBar: bitBarFormat, terminal: terminalFormat, json: jsonFormat };
+const getData = require('./lib/get-data');
+module.exports = getData;
 
 // const getData = require('./lib/get-data');
 const { alert, alertErr } = require('./lib/cli-tools');
 
 program
   .command('config')
-  .option('-g --githubToken <githubToken>')
-  .option('-a --addRepo <repoToAdd>')
-  .option('-r --removeRepo <repoToRemove>')
-  .option('-d --defaultFormat <format>', 'Display format')
+  .option('-g --githubToken <githubToken>', 'Github token to use for API call')
+  .option('-a --addRepo <repoToAdd>', 'Add a repository to the monitor list')
+  .option('-r --removeRepo <repoToRemove>', 'Remove a repository from the monitor list')
+  .option('-d --defaultFormat <format>', 'Select a default format to use')
   .description('Configure the application')
   .action(({ githubToken, addRepo, removeRepo, defaultFormat }) => {
     if (defaultFormat) {
@@ -57,8 +59,8 @@ program
 
 program
   .command('show-config')
-  .option('-s --showKeys')
-  .description('Display current configuration data.')
+  .option('-s --showKeys', 'Displays the Github token as well')
+  .description('Display the current repositories monitored.')
   .action((cmd) => {
     if (cmd.showKeys) prefs.githubToken 
       ? alert(`Current Github token is ${prefs.githubToken}`)
@@ -73,9 +75,9 @@ program
   
 program
   .command('clear')
-  .description('Clear current configuration data.')
-  .option('-g --githubToken')
-  .option('-r --repos')
+  .description('Clears all current configuration data.')
+  .option('-g --githubToken', 'Removes just the Github token')
+  .option('-r --repos', 'Removes just the repository data')
   .action((options) => {
     const { githubOrg, repos } = options;
     if (repos) {
@@ -104,10 +106,25 @@ program
 
 const { bitBar, terminal, json } = program;
 const { githubToken, repos, defaultFormat } = prefs;
-const display = 
+const choice = 
   bitBar ? 'bitBar' :
-    terminal ? 'terminal' :
-      json ? 'json' :
-        defaultFormat || 'terminal';
-const formatter = formatOptions[display];
-formatter(githubToken, repos);
+  terminal ? 'terminal' :
+  json ? 'json' :
+  defaultFormat || 'terminal';
+
+let { dataHandler, errorHandler } = terminalFormat;
+
+switch (choice) {
+  case 'json':
+    dataHandler = data => console.log(JSON.stringify(data, null, 2));
+    errorHandler = err => console.log(JSON.stringify(err));
+    break;
+  case 'bitBar':
+    dataHandler = bitBarFormat.dataHandler;
+    errorHandler = bitBarFormat.errorHandler;
+    break;
+}
+
+getData(githubToken, repos)
+  .then(dataHandler)
+  .catch(errorHandler);

@@ -1,11 +1,13 @@
 {
   "name": "pr-monitor",
-  "version": "0.1.0",
-  "main": "index.js",
+  "version": "0.2.0",
+  "main": "lib/get-data.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "bin": { "PRs": "./index.js" },
+  "bin": {
+    "PRs": "./index.js"
+  },
   "description": "Utility to show GitHub PRs on a specific list of repos.",
   "author": "David Goodwin <goodwid@gmail.com>",
   "license": "GPL-2.0-only",
@@ -17,5 +19,10 @@
     "preferences": "^1.0.2"
   },
   "warranty": "If you break it, you get to keep both pieces.",
-  "keywords": [ "github", "pull request", "monitor", "PR"]
+  "keywords": [
+    "github",
+    "pull request",
+    "monitor",
+    "PR"
+  ]
 }

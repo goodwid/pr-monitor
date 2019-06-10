@@ -1,4 +1,4 @@
-# Github pull request monitor
+# pr-monitor
 
 This started out as a [BitBar](https://getbitbar.com/) plugin. I had spun off another script that outputs direct to the console for general purpose usage, then realized it needed more work.
 
@@ -9,6 +9,22 @@ It has evolved into a single terminal app that has configuration options, storin
 `npm install pr-monitor -g`
 
 ## Usage
+
+### as a module
+
+`npm i pr-monitor -S`
+
+``` js
+const token = '<github Token>'
+const repos = [ 'goodwid/github-pr-monitor' ]
+const getData =  require('pr-monitor')
+
+getData(token, repos)
+  .then(data => console.log(JSON.stringify(data, null, 2)))
+  .catch(err => console.log(err))
+```
+
+### as a CLI app
 
 ``` shell
 # PRs
