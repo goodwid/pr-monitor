@@ -10,16 +10,16 @@ It has evolved into a single terminal app that has configuration options, storin
 
 ## Usage
 
-<pre>
-> PRs
+``` shell
+# PRs
 Total PRs: 1
 
-github-pr-monitor: goodwid on update-readme  https://github.com/goodwid/github-pr-monitor/pull/292
-</pre>
+github-pr-monitor: goodwid on update-readme  https://github.com/goodwid/github-pr-monitor/pull/1
+```
 
+Help is available within the app:
 
-<pre>
-
+``` shell
 # PRs --help
 
 Usage: PRs [options] [command]
@@ -36,14 +36,58 @@ Commands:
   config [options]       Configure the application
   show-config [options]  Display current configuration data.
   clear [options]        Clear current configuration data.
-</pre>
+```
 
-`PRs config 
+### Subcommands
 
-### To use this project with BitBar:
+#### config
 
-- add your github token  `pr-monitor config -g <token>`
-- add your repository `pr-monitor config -a <org>/<repo>`
+``` shell
+# PRs config --help
+Usage: config [options]
+
+Configure the application
+
+Options:
+  -g --githubToken <githubToken>  Github token to use for API call
+  -a --addRepo <repoToAdd>        Add a repository to the monitor list
+  -r --removeRepo <repoToRemove>  Remove a repository from the monitor list
+  -d --defaultFormat <format>     Select a default format to use
+  -h, --help                      output usage information
+```
+
+#### show-config
+
+``` shell
+# PRs show-config --help
+Usage: show-config [options]
+
+Display the current repositories monitored.
+
+Options:
+  -s --showKeys  Displays the Github token as well
+  -h, --help     output usage information
+
+```
+
+#### clear
+
+``` shell
+# PRs clear --help
+Usage: clear [options]
+
+Clears all current configuration data.
+
+Options:
+  -g --githubToken  Removes just the Github token
+  -r --repos        Removes just the repository data
+  -h, --help        output usage information
+```
+
+### To use this project with BitBar
+
+- add your github token:  `pr-monitor config -g <token>`
+- add your repository: `pr-monitor config -a <org>/<repo>`
 - set your default display `pr-monitor config -d bitBar`
 - create a symbolic link from your bitbar dir to `index.js`:  `ln -s pr-monitor /path/to/bitbar/github-pr-5m.js'
 
