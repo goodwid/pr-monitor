@@ -1,8 +1,8 @@
 # pr-monitor
 
-This started out as a [BitBar](https://getbitbar.com/) plugin. I had spun off another script that outputs direct to the console for general purpose usage, then realized it needed more work.
+This started out as a [BitBar](https://getbitbar.com/) plugin. I had spun off another script that output its data direct to the console for general purpose usage, then realized it needed more work.
 
-It has evolved into a module wrapped in a terminal app that has configuration options, storing the Github token and repositories to track.
+It has evolved into a module wrapped in a terminal app that has configuration options, storing the Github token and repositories to track in preferences, or receiving them as parameters as a module.
 
 ## Usage
 
@@ -16,10 +16,41 @@ It has evolved into a module wrapped in a terminal app that has configuration op
 const token = '<github Token>'
 const repos = [ 'goodwid/github-pr-monitor' ]
 const getData =  require('pr-monitor')
+const options = { count: true }; // optional, defaults to false
 
-getData(token, repos)
+getData(token, repos, options) // returns a JavaScript object
   .then(data => console.log(JSON.stringify(data, null, 2)))
   .catch(err => console.log(err))
+```
+
+The data object returned looks like:
+
+``` json
+{
+  "count": 3,
+  "data": {
+    "repo1": [
+      {
+        "name": "alice",
+        "branch": "branch1",
+        "url": "https://github.com/...pull/298"
+      },
+      {
+        "name": "bob",
+        "branch": "branch2",
+        "url": "https://github.com/...pull/292"
+      }
+    ],
+    "repo2": [
+      {
+        "name": "cathy",
+        "branch": "branch1",
+        "url": "https://github.com/.../pull/97"
+      }
+    ]
+  }
+}
+
 ```
 
 ### as a CLI app

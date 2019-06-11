@@ -1,6 +1,6 @@
 {
   "name": "pr-monitor",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "lib/get-data.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +10,13 @@
   },
   "description": "Utility to show GitHub PRs on a specific list of repos.",
   "author": "David Goodwin <goodwid@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goodwid/github-pr-monitor"
+  },
+  "bugs": {
+    "url": "https://github.com/goodwid/github-pr-monitor/issues"
+  },
   "license": "GPL-2.0-only",
   "dependencies": {
     "axios": "^0.19.0",
