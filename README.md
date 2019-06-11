@@ -2,15 +2,13 @@
 
 This started out as a [BitBar](https://getbitbar.com/) plugin. I had spun off another script that outputs direct to the console for general purpose usage, then realized it needed more work.
 
-It has evolved into a single terminal app that has configuration options, storing the Github token and repositories to track.
-
-## Installation
-
-`npm install pr-monitor -g`
+It has evolved into a module wrapped in a terminal app that has configuration options, storing the Github token and repositories to track.
 
 ## Usage
 
-### as a module
+### As a module
+
+#### Installation
 
 `npm i pr-monitor -S`
 
@@ -26,11 +24,16 @@ getData(token, repos)
 
 ### as a CLI app
 
-``` shell
+#### Global installation
+
+`npm install pr-monitor -g`
+
+``` bash
 # PRs
 Total PRs: 1
 
 github-pr-monitor: goodwid on update-readme  https://github.com/goodwid/github-pr-monitor/pull/1
+
 ```
 
 Help is available within the app:
@@ -43,15 +46,18 @@ Usage: PRs [options] [command]
 Show current pull requests for all configured repos.
 
 Options:
+  -V, --version          output the version number
   -b --bitBar            Outputs data in a format usable by bitBar.
   -t --terminal          Outputs data to the terminal.
   -j --json              Outputs data in JSON format.
+  -c --count             Only show the number of PRs
   -h, --help             output usage information
 
 Commands:
   config [options]       Configure the application
-  show-config [options]  Display current configuration data.
-  clear [options]        Clear current configuration data.
+  show-config [options]  Display the current repositories monitored.
+  clear [options]        Clears all current configuration data.
+
 ```
 
 ### Subcommands

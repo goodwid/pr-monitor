@@ -2,9 +2,10 @@
 
 /* eslint-disable indent */
 
+const pj = require('./package.json');
 const program = require('commander');
 const Preferences = require('preferences');
-let app = 'pr-monitor';
+const app = pj.name;
 const prefs = new Preferences(app);
 const bitBarFormat = require('./lib/data-format/bitbar');
 const terminalFormat = require('./lib/data-format/terminal');
@@ -15,6 +16,7 @@ module.exports = getData;
 const { alert, alertErr } = require('./lib/cli-tools');
 
 program
+  .version(pj.version)
   .command('config')
   .option('-g --githubToken <githubToken>', 'Github token to use for API call')
   .option('-a --addRepo <repoToAdd>', 'Add a repository to the monitor list')
@@ -102,9 +104,10 @@ program
   .option('-b --bitBar', 'Outputs data in a format usable by bitBar.')
   .option('-t --terminal', 'Outputs data to the terminal.')
   .option('-j --json', 'Outputs data in JSON format.')
+  .option('-c --count', 'Only show the number of PRs')
   .parse(process.argv);
 
-const { bitBar, terminal, json } = program;
+const { bitBar, terminal, json, count = false } = program;
 const { githubToken, repos, defaultFormat } = prefs;
 const choice = 
   bitBar ? 'bitBar' :
@@ -125,6 +128,6 @@ switch (choice) {
     break;
 }
 
-getData(githubToken, repos)
+getData(githubToken, repos, { count })
   .then(dataHandler)
   .catch(errorHandler);
