@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to pr-monitor 👋</h1>
 <p>
-  <img src="https://img.shields.io/badge/version-0.3.0-blue.svg?cacheSeconds=2592000" />
+  <img src="https://img.shields.io/badge/version-0.3.1-blue.svg?cacheSeconds=2592000" />
   <a href="https://github.com/goodwid/github-pr-monitor#readme">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
   </a>
