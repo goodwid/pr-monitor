@@ -1,4 +1,16 @@
-# pr-monitor
+<h1 align="center">Welcome to pr-monitor 👋</h1>
+<p>
+  <img src="https://img.shields.io/badge/version-0.3.0-blue.svg?cacheSeconds=2592000" />
+  <a href="https://github.com/goodwid/github-pr-monitor#readme">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
+  </a>
+  <a href="https://github.com/goodwid/github-pr-monitor/graphs/commit-activity">
+    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" target="_blank" />
+  </a>
+  <a href="https://github.com/goodwid/github-pr-monitor/blob/master/LICENSE">
+    <img alt="License: GPL-2.0-only" src="https://img.shields.io/badge/License-GPL-2.0-only-yellow.svg" target="_blank" />
+  </a>
+</p>
 
 This started out as a [BitBar](https://getbitbar.com/) plugin. I had spun off another script that output its data direct to the console for general purpose usage, then realized it needed more work.
 
@@ -144,4 +156,26 @@ Options:
 - set your default display `pr-monitor config -d bitBar`
 - create a symbolic link from your bitbar dir to `index.js`:  `ln -s pr-monitor /path/to/bitbar/github-pr-5m.js'
 
-For other use, follow the first three steps, and roll your own monitoring (conky? rainmeter?)
+
+## Author
+
+👤 **David Goodwin &lt;goodwid@gmail.com&gt;**
+
+* Twitter: [@goodwid](https://twitter.com/goodwid)
+* Github: [@goodwid](https://github.com/goodwid)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome !<br />Feel free to check [issues page](https://github.com/goodwid/github-pr-monitor/issues).
+
+## Show your support
+
+Give a ⭐️ if this project helped you !
+
+## 📝 License
+
+Copyright © 2019 [David Goodwin &lt;goodwid@gmail.com&gt;](https://github.com/goodwid).<br />
+This project is [GPL-2.0-only](https://github.com/goodwid/github-pr-monitor/blob/master/LICENSE) licensed.
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
