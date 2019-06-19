@@ -8,7 +8,7 @@
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" target="_blank" />
   </a>
   <a href="https://github.com/goodwid/github-pr-monitor/blob/master/LICENSE">
-    <img alt="License: GPL-2.0-only" src="https://img.shields.io/badge/License-GPL-2.0-only-yellow.svg" target="_blank" />
+    <img alt="License: GPL-2.0-only" src="https://img.shields.io/npm/l/pr-monitor.svg" target="_blank" />
   </a>
 </p>
 
