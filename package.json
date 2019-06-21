@@ -1,6 +1,6 @@
 {
   "name": "pr-monitor",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "main": "lib/get-data.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,7 +23,7 @@
     "bitbar": "^0.4.0",
     "chalk": "^2.4.2",
     "commander": "^2.20.0",
-    "preferences": "git+https://github.com/caffeinalab/preferences.git"
+    "preferences": "git+https://github.com/goodwid/preferences.git"
   },
   "warranty": "If you break it, you get to keep both pieces.",
   "keywords": [
