@@ -94,6 +94,7 @@ Options:
   -t --terminal          Outputs data to the terminal.
   -j --json              Outputs data in JSON format.
   -c --count             Only show the number of PRs
+  -N --nocolor           Omit colors in terminal output
   -h, --help             output usage information
 
 Commands:

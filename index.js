@@ -105,9 +105,10 @@ program
   .option('-t --terminal', 'Outputs data to the terminal.')
   .option('-j --json', 'Outputs data in JSON format.')
   .option('-c --count', 'Only show the number of PRs')
+  .option('-N --nocolor', 'Omit colors in terminal output')
   .parse(process.argv);
 
-const { bitBar, terminal, json, count = false } = program;
+const { bitBar, terminal, json, count = false, nocolor = false } = program;
 const { githubToken, repos, defaultFormat } = prefs;
 const choice = 
   bitBar ? 'bitBar' :
@@ -115,7 +116,7 @@ const choice =
   json ? 'json' :
   defaultFormat || 'terminal';
 
-let { dataHandler, errorHandler } = terminalFormat;
+let { dataHandler, errorHandler } = terminalFormat({ showColors: !nocolor });
 
 switch (choice) {
   case 'json':
