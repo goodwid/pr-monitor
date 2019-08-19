@@ -1,6 +1,6 @@
 {
   "name": "pr-monitor",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "main": "lib/get-data.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
