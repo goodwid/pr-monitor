@@ -12,10 +12,10 @@
   "author": "David Goodwin <goodwid@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goodwid/github-pr-monitor"
+    "url": "git+https://github.com/goodwid/pr-monitor"
   },
   "bugs": {
-    "url": "https://github.com/goodwid/github-pr-monitor/issues"
+    "url": "https://github.com/goodwid/pr-monitor/issues"
   },
   "license": "GPL-2.0-only",
   "dependencies": {
