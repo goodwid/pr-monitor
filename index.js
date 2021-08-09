@@ -9,10 +9,10 @@ const app = pj.name;
 const prefs = new Preferences(app);
 const bitBarFormat = require('./lib/data-format/bitbar');
 const terminalFormat = require('./lib/data-format/terminal');
+const XMLFormat = require('./lib/data-format/xml');
 const getData = require('./lib/get-data');
 module.exports = getData;
 
-// const getData = require('./lib/get-data');
 const { alert, alertErr } = require('./lib/cli-tools');
 
 program
@@ -64,7 +64,7 @@ program
   .option('-s --showKeys', 'Displays the Github token as well')
   .description('Display the current repositories monitored.')
   .action((cmd) => {
-    if (cmd.showKeys) prefs.githubToken 
+    if (cmd.showKeys) prefs.githubToken
       ? alert(`Current Github token is ${prefs.githubToken}`)
       : alertErr('There is no Github token configured.');
     if (prefs.repos) {
@@ -74,7 +74,7 @@ program
     process.exit(0);
 
   });
-  
+
 program
   .command('clear')
   .description('Clears all current configuration data.')
@@ -104,16 +104,18 @@ program
   .option('-b --bitBar', 'Outputs data in a format usable by bitBar.')
   .option('-t --terminal', 'Outputs data to the terminal.')
   .option('-j --json', 'Outputs data in JSON format.')
+  .option('-x --xml', 'Outputs data in XML format, suitable for RSS.')
   .option('-c --count', 'Only show the number of PRs')
   .option('-N --nocolor', 'Omit colors in terminal output')
   .parse(process.argv);
 
-const { bitBar, terminal, json, count = false, nocolor = false } = program;
+const { bitBar, terminal, json, xml, count = false, nocolor = false } = program;
 const { githubToken, repos, defaultFormat } = prefs;
-const choice = 
+const choice =
   bitBar ? 'bitBar' :
   terminal ? 'terminal' :
   json ? 'json' :
+  xml ? 'xml' :
   defaultFormat || 'terminal';
 
 let { dataHandler, errorHandler } = terminalFormat({ showColors: !nocolor });
@@ -126,6 +128,10 @@ switch (choice) {
   case 'bitBar':
     dataHandler = bitBarFormat.dataHandler;
     errorHandler = bitBarFormat.errorHandler;
+    break;
+  case 'xml':
+    dataHandler = XMLFormat.dataHandler;
+    errorHandler = XMLFormat.errorHandler;
     break;
 }
 

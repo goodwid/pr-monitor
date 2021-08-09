@@ -84,6 +84,11 @@ is-buffer@^2.0.2:
   resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-2.0.3.tgz#4ecf3fcf749cbd1e472689e109ac66261a25e725"
   integrity sha512-U15Q7MXTuZlrbymiz95PJpZxu8IlipAp4dtS3wOdgPXx3mqBnslrWU14kxfHB+Py/+2PVKSr37dMAgM2A4uArw==
 
+jstoxml@^1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/jstoxml/-/jstoxml-1.6.1.tgz#487e351c6eff2a3f2cf501046b423cde30f3e617"
+  integrity sha512-gfgKycDwqSS15fPRN09dGJ+ixI/H7tt4PKvAB0rB7DKY5Vztj1NZx3veJalsspGdhL27KtPZtMYOsrf79jjycg==
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
