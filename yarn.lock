@@ -62,6 +62,11 @@ has-flag@^3.0.0:
   resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-3.0.0.tgz#b5d454dc2199ae225699f3467e5a07f3b955bafd"
   integrity sha1-tdRU3CGZriJWmfNGfloH87lVuv0=
 
+jstoxml@^1.6.1:
+  version "1.6.11"
+  resolved "https://registry.yarnpkg.com/jstoxml/-/jstoxml-1.6.11.tgz#295f3aec62b845310026c702173fab0c65fc8f6c"
+  integrity sha512-7X6qWhnru9dtSLoGilRFycpMgxX0LA+7cZORi2ObYTiwbPN0Byl3v9aaGnb0XrWWloub9W6z5zM5fW9HOoWctA==
+
 "preferences@git+https://github.com/goodwid/preferences.git":
   version "2.0.2"
   resolved "git+https://github.com/goodwid/preferences.git#7469451030297b7f43dcd1e9a125eeaedafb9e8e"
