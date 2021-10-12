@@ -81,16 +81,16 @@ program
   .option('-g --githubToken', 'Removes just the Github token')
   .option('-r --repos', 'Removes just the repository data')
   .action((options) => {
-    const { githubOrg, repos } = options;
-    if (repos) {
-      prefs.githubOrg = undefined;
+
+    if (options.repos) {
+      prefs.repos = undefined;
       alertErr('Github repos have been cleared.');
     }
-    if (githubToken) {
+    if (options.githubToken) {
       prefs.githubToken = undefined;
       alertErr('Github token has been cleared.');
     }
-    if (!githubOrg && !githubToken) {
+    if (!options.githubToken && !options.repos) {
       prefs.githubOrg = undefined;
       prefs.githubToken = undefined;
       alertErr('all configurations have been removed.');
@@ -106,10 +106,11 @@ program
   .option('-j --json', 'Outputs data in JSON format.')
   .option('-x --xml', 'Outputs data in XML format, suitable for RSS.')
   .option('-c --count', 'Only show the number of PRs')
-  .option('-N --nocolor', 'Omit colors in terminal output')
-  .parse(process.argv);
+  .option('-N --nocolor', 'Omit colors in terminal output');
 
-const { bitBar, terminal, json, xml, count = false, nocolor = false } = program;
+program.parse(process.argv);
+
+const { bitBar, terminal, json, xml, count = false, nocolor = false } = program.opts();
 const { githubToken, repos, defaultFormat } = prefs;
 const choice =
   bitBar ? 'bitBar' :
@@ -117,7 +118,6 @@ const choice =
   json ? 'json' :
   xml ? 'xml' :
   defaultFormat || 'terminal';
-
 let { dataHandler, errorHandler } = terminalFormat({ showColors: !nocolor });
 
 switch (choice) {

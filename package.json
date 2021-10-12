@@ -1,6 +1,6 @@
 {
   "name": "pr-monitor",
-  "version": "0.3.4",
+  "version": "0.3.6",
   "main": "lib/get-data.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,12 +19,12 @@
   },
   "license": "GPL-2.0-only",
   "dependencies": {
-    "axios": "^0.21.1",
-    "bitbar": "^0.4.0",
-    "chalk": "^2.4.2",
+    "axios": "^0.22.0",
+    "bitbar": "^1.3.2",
+    "chalk": "^4.1.2",
     "commander": "^2.20.0",
-    "jstoxml": "^1.6.1",
-    "preferences": "git+https://github.com/goodwid/preferences.git"
+    "jstoxml": "^2.2.4",
+    "preferences": "^2.0.2"
   },
   "warranty": "If you break it, you get to keep both pieces.",
   "keywords": [
