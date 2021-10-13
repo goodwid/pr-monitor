@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to pr-monitor 👋</h1>
 <p>
-  <img src="https://img.shields.io/badge/version-0.3.1-blue.svg?cacheSeconds=2592000" />
+  <img src="https://img.shields.io/badge/version-0.3.7-blue.svg?cacheSeconds=2592000" />
   <a href="https://github.com/goodwid/github-pr-monitor#readme">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
   </a>
@@ -12,7 +12,7 @@
   </a>
 </p>
 
-This started out as a [BitBar](https://getbitbar.com/) plugin. I had spun off another script that output its data direct to the console for general purpose usage, then realized it needed more work.
+This started out as a [xBar](https://xbarapp.com/) (formerly BitBar) plugin. I had spun off another script that output its data direct to the console for general purpose usage, then realized it needed more work.
 
 It has evolved into a module wrapped in a terminal app that has configuration options, storing the Github token and repositories to track in preferences, or receiving them as parameters as a module.
 
@@ -22,7 +22,7 @@ It has evolved into a module wrapped in a terminal app that has configuration op
 
 #### Installation
 
-`npm i pr-monitor -S`
+`npm i pr-monitor -g`
 
 ``` js
 const token = '<github Token>'
@@ -93,6 +93,7 @@ Options:
   -b --bitBar            Outputs data in a format usable by bitBar.
   -t --terminal          Outputs data to the terminal.
   -j --json              Outputs data in JSON format.
+  -x --xml               Outputs data in XML format.
   -c --count             Only show the number of PRs
   -N --nocolor           Omit colors in terminal output
   -h, --help             output usage information
@@ -150,12 +151,12 @@ Options:
   -h, --help        output usage information
 ```
 
-### To use this project with BitBar
+### To use this project with xBar
 
 - add your github token:  `pr-monitor config -g <token>`
 - add your repository: `pr-monitor config -a <org>/<repo>`
 - set your default display `pr-monitor config -d bitBar`
-- create a symbolic link from your bitbar dir to `index.js`:  `ln -s pr-monitor /path/to/bitbar/github-pr-5m.js'
+- create a symbolic link from your xbar dir to `index.js`:  `ln -s pr-monitor /path/to/bitbar/github-pr-5m.js'
 
 
 ## Author
