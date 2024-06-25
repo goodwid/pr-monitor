@@ -22,7 +22,7 @@ It has evolved into a module wrapped in a terminal app that has configuration op
 
 #### Installation
 
-`npm i pr-monitor -g`
+`npm i pr-monitor`
 
 ``` js
 const token = '<github Token>'
